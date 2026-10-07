@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="330" viewBox="0 0 660 330" role="img" aria-labelledby="title desc">
+<title id="title">Modelo de caja de CSS</title><desc id="desc">Del exterior al interior: margin, border, padding y content.</desc>
+<g font-family="system-ui,sans-serif" font-size="18" text-anchor="middle" fill="#172333">
+<rect x="5" y="5" width="650" height="320" rx="12" fill="#edf1f6" stroke="#aeb9c8" stroke-dasharray="6 6"/><text x="330" y="34">margin · espacio exterior</text>
+<rect x="45" y="48" width="570" height="244" rx="8" fill="#ffe1a6" stroke="#875c16" stroke-width="3"/><text x="330" y="77">border · borde</text>
+<rect x="87" y="92" width="486" height="160" rx="6" fill="#c5f5db"/><text x="330" y="122">padding · espacio interior</text>
+<rect x="140" y="140" width="380" height="70" rx="4" fill="#244bd7"/><text x="330" y="182" fill="white" font-weight="700">content · contenido</text>
+</g></svg>

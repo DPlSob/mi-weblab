@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="380" viewBox="0 0 560 380" role="img" aria-labelledby="title desc">
+<title id="title">Tres capas de una página web</title><desc id="desc">HTML define la estructura, CSS su presentación y JavaScript añade comportamiento. Las tres capas forman la web.</desc>
+<rect width="560" height="380" rx="16" fill="#162235"/>
+<g font-family="system-ui, sans-serif"><text x="34" y="44" fill="#c5f5db" font-size="14" letter-spacing="2">ANATOMÍA DE UNA WEB</text>
+<path d="M92 113V299H462V113" fill="none" stroke="#52658b" stroke-width="2"/>
+<rect x="32" y="76" width="496" height="64" rx="12" fill="#eaf0ff"/>
+<text x="54" y="115" font-size="24" font-weight="700" fill="#244bd7">01 / HTML</text><text x="290" y="114" font-size="18" fill="#172333">Estructura</text>
+<rect x="54" y="156" width="452" height="64" rx="12" fill="#c5f5db"/>
+<text x="76" y="195" font-size="24" font-weight="700" fill="#215338">02 / CSS</text><text x="290" y="194" font-size="18" fill="#172333">Presentación</text>
+<rect x="76" y="236" width="408" height="64" rx="12" fill="#ffe1a6"/>
+<text x="98" y="275" font-size="24" font-weight="700" fill="#67420a">03 / JS</text><text x="290" y="274" font-size="18" fill="#172333">Interacción</text>
+<text x="34" y="348" font-size="15" fill="#d0d9e6">Un navegador interpreta las tres capas.</text></g></svg>

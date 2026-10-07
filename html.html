@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organiza el contenido con etiquetas semánticas y enlaza las páginas de tu sitio.">
+  <title>HTML: la estructura | WebLab · LMSGI</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WebLab, inicio"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> WebLab</a>
+      <nav aria-label="Navegación principal"><ul class="nav-list"><li><a href="index.html">Inicio</a></li><li><a href="html.html" aria-current="page">HTML</a></li><li><a href="css.html">CSS</a></li><li><a href="javascript.html">JavaScript</a></li><li><a href="git-github.html">Git / GitHub</a></li><li><a href="proyecto.html">Proyecto final</a></li></ul></nav>
+    </div>
+  </header>
+  <main id="contenido" class="container" tabindex="-1">
+<div class="lesson-heading"><p class="eyebrow">Lección 01 / 05 · LMSGI</p><h1>HTML: la estructura</h1><p class="lead">Organiza el contenido con etiquetas semánticas y enlaza las páginas de tu sitio.</p></div>
+<div class="lesson-grid"><aside class="lesson-aside"><nav aria-label="En esta lección"><h2>En esta lección</h2><ol><li><a href="#estructura">Estructura</a></li><li><a href="#recursos">Enlaces e imágenes</a></li><li><a href="#formulario">Formularios</a></li><li><a href="#practica">Tu turno</a></li></ol></nav></aside>
+<div class="lesson-content"><section id="estructura" aria-labelledby="estructura-titulo"><h2 id="estructura-titulo">01. Contenido con significado</h2><p>HTML es un lenguaje de marcas. Describe qué es cada parte del contenido: un título, un párrafo, una lista o un enlace. Las etiquetas no se eligen por su aspecto, sino por su función.</p><p><code>header</code> agrupa la cabecera; <code>nav</code>, la navegación; <code>main</code>, el contenido principal; y <code>footer</code>, el pie. Usa un <code>h1</code> que identifique la página y <code>h2</code> para sus secciones.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Mi primera web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;&lt;h1&gt;Mi primera web&lt;/h1&gt;&lt;/header&gt;
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Sobre mí&lt;/h2&gt;
+      &lt;p&gt;Estoy aprendiendo HTML en 1.º DAM.&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;&lt;p&gt;Proyecto de LMSGI&lt;/p&gt;&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></section><section id="recursos" aria-labelledby="recursos-titulo"><h2 id="recursos-titulo">02. Conecta páginas y recursos</h2><p>El atributo <code>href</code> indica el destino de un enlace. <code>src</code> indica el archivo de una imagen. Las rutas relativas se calculan desde el archivo que las usa; respeta mayúsculas y minúsculas, también en GitHub Pages.</p><pre><code>&lt;a href=&quot;css.html&quot;&gt;Aprender CSS&lt;/a&gt;
+&lt;img src=&quot;img/web-stack.svg&quot;
+     alt=&quot;HTML, CSS y JavaScript forman las tres capas de una web.&quot;
+     width=&quot;560&quot; height=&quot;380&quot;&gt;
+&lt;ul&gt;
+  &lt;li&gt;Estructurar con HTML&lt;/li&gt;
+  &lt;li&gt;Diseñar con CSS&lt;/li&gt;
+  &lt;li&gt;Interactuar con JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre><div class="callout"><p>Describe en <code>alt</code> la información relevante de una imagen. Si es puramente decorativa, usa <code>alt=""</code>. Escribe enlaces con un destino comprensible, como «Aprender CSS».</p></div></section><section id="formulario" aria-labelledby="formulario-titulo"><h2 id="formulario-titulo">03. Etiquetas que ayudan a todos</h2><p>Un campo necesita una etiqueta asociada. El atributo <code>for</code> debe coincidir con su <code>id</code>; <code>name</code> identifica el dato cuando se envía un formulario.</p><pre><code>&lt;form action=&quot;/contacto&quot; method=&quot;post&quot;&gt;
+  &lt;label for=&quot;nombre&quot;&gt;Nombre&lt;/label&gt;
+  &lt;input id=&quot;nombre&quot; name=&quot;nombre&quot; type=&quot;text&quot; required&gt;
+  &lt;button type=&quot;submit&quot;&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre><p>Este ejemplo necesitaría un servidor que gestione <code>/contacto</code>. WebLab es una web estática y no incluye envío de datos. Los botones de las demostraciones usan <code>type="button"</code>.</p></section><section id="practica" class="activity" aria-labelledby="practica-titulo">
+<p class="eyebrow">Tu turno</p><h2 id="practica-titulo">Una pequeña práctica</h2><p>Edita una copia de <code>html.html</code> y añade una sección titulada «Mis objetivos» con una lista de tres cosas que quieras aprender y un enlace a otra página del curso.</p><p>Comprueba la jerarquía de títulos y recorre el enlace con Tab y Enter.</p>
+<details><summary>Ver una pista</summary><p>Usa <code>section</code>, <code>h2</code>, <code>ul</code> y <code>li</code>. Un enlace local puede ser <code>&lt;a href="css.html"&gt;Aprender CSS&lt;/a&gt;</code>.</p></details></section><nav class="lesson-pagination" aria-label="Continuar el curso"><a href="index.html">Anterior: Inicio</a><a href="css.html">Siguiente: CSS</a></nav></div></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>WebLab</strong> · 1.º DAM / LMSGI · v0.1</p>
+      <p>Aprende. Experimenta. Versiona. · <a href="git-github.html">Trabajar con Git</a></p>
+    </div>
+  </footer>
+</body>
+</html>

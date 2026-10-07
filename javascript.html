@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Una referencia al elemento, un evento y un cambio visible: tu primera interacción con el DOM.">
+  <title>JavaScript: añade interacción | WebLab · LMSGI</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WebLab, inicio"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> WebLab</a>
+      <nav aria-label="Navegación principal"><ul class="nav-list"><li><a href="index.html">Inicio</a></li><li><a href="html.html">HTML</a></li><li><a href="css.html">CSS</a></li><li><a href="javascript.html" aria-current="page">JavaScript</a></li><li><a href="git-github.html">Git / GitHub</a></li><li><a href="proyecto.html">Proyecto final</a></li></ul></nav>
+    </div>
+  </header>
+  <main id="contenido" class="container" tabindex="-1">
+<div class="lesson-heading"><p class="eyebrow">Lección 03 / 05 · LMSGI</p><h1>JavaScript: añade interacción</h1><p class="lead">Una referencia al elemento, un evento y un cambio visible: tu primera interacción con el DOM.</p></div>
+<div class="lesson-grid"><aside class="lesson-aside"><nav aria-label="En esta lección"><h2>En esta lección</h2><ol><li><a href="#variables">Variables y carga</a></li><li><a href="#dom">DOM y eventos</a></li><li><a href="#depurar">Depuración</a></li><li><a href="#practica">Tu turno</a></li></ol></nav></aside>
+<div class="lesson-content"><section id="variables" aria-labelledby="variables-titulo"><h2 id="variables-titulo">01. Guarda datos y carga tu script</h2><p>JavaScript añade comportamiento. Usa <code>const</code> para referencias que no vas a reasignar y <code>let</code> para valores que sí cambian. Un texto es una cadena; un número permite hacer cálculos.</p><pre><code>const curso = &quot;1.º DAM&quot;;
+let actividadesCompletadas = 0;
+actividadesCompletadas = actividadesCompletadas + 1;
+console.log(curso, actividadesCompletadas);</code></pre><p>Enlaza el script con <code>defer</code>: se ejecutará después de analizar el HTML. Así podrá encontrar los elementos de la página.</p><pre><code>&lt;script src=&quot;js/app.js&quot; defer&gt;&lt;/script&gt;</code></pre></section><section id="dom" aria-labelledby="dom-titulo"><h2 id="dom-titulo">02. Selecciona, escucha, modifica</h2><p>El DOM es la representación del documento que ofrece el navegador. <code>querySelector</code> encuentra un elemento, <code>addEventListener</code> escucha una acción y <code>textContent</code> cambia el texto.</p><pre><code>&lt;button id=&quot;greeting-button&quot; type=&quot;button&quot;&gt;Saludar&lt;/button&gt;
+&lt;p id=&quot;greeting-message&quot; aria-live=&quot;polite&quot;&gt;
+  Pulsa el botón para saludar.
+&lt;/p&gt;</code></pre><pre><code>const greetingButton = document.querySelector(&#x27;#greeting-button&#x27;);
+const greetingMessage = document.querySelector(&#x27;#greeting-message&#x27;);
+
+if (greetingButton &amp;&amp; greetingMessage) {
+  greetingButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+    greetingMessage.textContent =
+      &#x27;¡Hola, DAM! Has actualizado el DOM con JavaScript.&#x27;;
+  });
+}</code></pre><p>La comprobación <code>if</code> evita errores en páginas que no tienen estos elementos. <code>aria-live="polite"</code> anuncia el cambio a quienes usan un lector de pantalla.</p><div class="demo"><h3>Pruébalo aquí</h3><button class="button" id="greeting-button" type="button">Saludar</button><p id="greeting-message" class="status" aria-live="polite">Pulsa el botón para saludar.</p><noscript><p>Esta demostración necesita JavaScript. Puedes leer su código arriba.</p></noscript></div></section><section id="depurar" aria-labelledby="depurar-titulo"><h2 id="depurar-titulo">03. Observa antes de cambiar</h2><ol><li>Abre las herramientas de desarrollo del navegador y entra en la consola.</li><li>Si hay un error, lee el archivo y el número de línea que indica.</li><li>Comprueba que el selector coincide con el <code>id</code> del HTML.</li><li>Guarda, recarga y vuelve a probar el botón con ratón y teclado.</li></ol><div class="callout"><p>Mantén los contenidos y los enlaces en HTML. JavaScript debe mejorar la experiencia: el curso debe seguir siendo legible cuando el script no esté disponible.</p></div></section><section id="practica" class="activity" aria-labelledby="practica-titulo">
+<p class="eyebrow">Tu turno</p><h2 id="practica-titulo">Una pequeña práctica</h2><p>Añade un segundo botón que restablezca el mensaje del ejemplo a «Pulsa el botón para saludar».</p><p>Recorre ambos botones con el teclado. Comprueba que no hay errores en la consola del navegador.</p>
+<details><summary>Ver una pista</summary><p>Asigna un identificador único al botón, selecciónalo con <code>document.querySelector()</code> y escucha su evento <code>click</code>. Modifica <code>textContent</code> del mismo párrafo.</p></details></section><nav class="lesson-pagination" aria-label="Continuar el curso"><a href="css.html">Anterior: CSS</a><a href="git-github.html">Siguiente: Git / GitHub</a></nav></div></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>WebLab</strong> · 1.º DAM / LMSGI · v0.1</p>
+      <p>Aprende. Experimenta. Versiona. · <a href="git-github.html">Trabajar con Git</a></p>
+    </div>
+  </footer>
+</body>
+</html>

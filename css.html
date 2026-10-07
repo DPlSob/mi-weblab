@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Colores, espacio y layouts que funcionan tanto en un móvil como en un ordenador.">
+  <title>CSS: dale forma | WebLab · LMSGI</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WebLab, inicio"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> WebLab</a>
+      <nav aria-label="Navegación principal"><ul class="nav-list"><li><a href="index.html">Inicio</a></li><li><a href="html.html">HTML</a></li><li><a href="css.html" aria-current="page">CSS</a></li><li><a href="javascript.html">JavaScript</a></li><li><a href="git-github.html">Git / GitHub</a></li><li><a href="proyecto.html">Proyecto final</a></li></ul></nav>
+    </div>
+  </header>
+  <main id="contenido" class="container" tabindex="-1">
+<div class="lesson-heading"><p class="eyebrow">Lección 02 / 05 · LMSGI</p><h1>CSS: dale forma</h1><p class="lead">Colores, espacio y layouts que funcionan tanto en un móvil como en un ordenador.</p></div>
+<div class="lesson-grid"><aside class="lesson-aside"><nav aria-label="En esta lección"><h2>En esta lección</h2><ol><li><a href="#selectores">Selectores</a></li><li><a href="#caja">Modelo de caja</a></li><li><a href="#responsive">Flexbox y Grid</a></li><li><a href="#practica">Tu turno</a></li></ol></nav></aside>
+<div class="lesson-content"><section id="selectores" aria-labelledby="selectores-titulo"><h2 id="selectores-titulo">01. Una hoja, muchas páginas</h2><p>CSS define la presentación. Enlaza la misma hoja de estilos desde todas las páginas para mantener colores, espacios y tipografía coherentes.</p><pre><code>&lt;!-- Dentro de head --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/estilos.css&quot;&gt;</code></pre><p>Un selector de etiqueta afecta a todos los elementos de ese tipo. Una clase reutilizable comienza por un punto. La cascada resuelve qué regla se aplica según origen, importancia, especificidad y orden.</p><pre><code>body {
+  font-family: system-ui, sans-serif;
+  color: #172333;
+}
+.tarjeta {
+  background: white;
+  border-radius: 12px;
+}</code></pre></section><section id="caja" aria-labelledby="caja-titulo"><h2 id="caja-titulo">02. Todo elemento ocupa una caja</h2><p>El contenido tiene espacio interior (<code>padding</code>), borde (<code>border</code>) y separación exterior (<code>margin</code>). Con <code>box-sizing: border-box</code>, el ancho declarado incluye padding y borde.</p><figure><img src="img/box-model.svg" width="660" height="330" alt="Modelo de caja, del exterior al interior: margin, border, padding y content." loading="lazy"><figcaption>El padding separa el contenido del borde; el margin separa cajas.</figcaption></figure><div class="demo"><label for="padding-control">Experimenta con el padding: <output id="padding-value" for="padding-control">20 px</output></label><input id="padding-control" type="range" min="0" max="48" value="20"><div id="demo-box" class="demo-box">El contenido es el mismo. Cambia el espacio interior.</div><noscript><p>Activa JavaScript para mover el ejemplo; el diagrama muestra el mismo concepto.</p></noscript></div></section><section id="responsive" aria-labelledby="responsive-titulo"><h2 id="responsive-titulo">03. Un diseño que se adapta</h2><p>Flexbox organiza elementos principalmente en una dirección: por ejemplo, un menú que puede saltar de línea. Grid distribuye filas y columnas. Una media query permite cambiar el layout según el ancho disponible.</p><pre><code>.menu {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 640px) {
+  .tarjetas { grid-template-columns: 1fr; }
+}</code></pre><p>Prueba con ventanas pequeñas y zoom al 200 %. Evita textos diminutos y comprueba que el foco del teclado se ve. En esta web los bloques de código pueden desplazarse horizontalmente sin ensanchar toda la página.</p></section><section id="practica" class="activity" aria-labelledby="practica-titulo">
+<p class="eyebrow">Tu turno</p><h2 id="practica-titulo">Una pequeña práctica</h2><p>Crea una clase <code>.objetivos</code> para tu nueva sección: cambia el fondo, añade un borde y ajusta su espacio interior. Comprueba la página con una ventana de 375 px de ancho.</p>
+<details><summary>Ver una pista</summary><p>Empieza con <code>background: #e5f6ec;</code>, <code>border: 1px solid #bcdcc9;</code> y <code>padding: 24px;</code>. Evita anchos fijos para contenedores.</p></details></section><nav class="lesson-pagination" aria-label="Continuar el curso"><a href="html.html">Anterior: HTML</a><a href="javascript.html">Siguiente: JavaScript</a></nav></div></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>WebLab</strong> · 1.º DAM / LMSGI · v0.1</p>
+      <p>Aprende. Experimenta. Versiona. · <a href="git-github.html">Trabajar con Git</a></p>
+    </div>
+  </footer>
+</body>
+</html>

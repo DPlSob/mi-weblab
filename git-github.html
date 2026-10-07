@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aprende a versionar tu web y a colaborar con cambios pequeños que se pueden explicar y revisar.">
+  <title>Git / GitHub: guarda cada avance | WebLab · LMSGI</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="WebLab, inicio"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> WebLab</a>
+      <nav aria-label="Navegación principal"><ul class="nav-list"><li><a href="index.html">Inicio</a></li><li><a href="html.html">HTML</a></li><li><a href="css.html">CSS</a></li><li><a href="javascript.html">JavaScript</a></li><li><a href="git-github.html" aria-current="page">Git / GitHub</a></li><li><a href="proyecto.html">Proyecto final</a></li></ul></nav>
+    </div>
+  </header>
+  <main id="contenido" class="container" tabindex="-1">
+<div class="lesson-heading"><p class="eyebrow">Lección 04 / 05 · LMSGI</p><h1>Git / GitHub: guarda cada avance</h1><p class="lead">Aprende a versionar tu web y a colaborar con cambios pequeños que se pueden explicar y revisar.</p></div>
+<div class="lesson-grid"><aside class="lesson-aside"><nav aria-label="En esta lección"><h2>En esta lección</h2><ol><li><a href="#diferencia">Git y GitHub</a></li><li><a href="#flujo">Flujo de trabajo</a></li><li><a href="#primer-commit">Primer commit</a></li><li><a href="#comandos">Comandos básicos</a></li><li><a href="#ramas">Ramas y colaboración</a></li><li><a href="#practica">Tu turno</a></li></ol></nav></aside>
+<div class="lesson-content"><section id="diferencia" aria-labelledby="diferencia-titulo"><h2 id="diferencia-titulo">01. Dos herramientas, funciones distintas</h2><div class="comparison"><article class="card"><h3>Git</h3><p>Sistema de control de versiones que funciona en tu ordenador. Guarda instantáneas, compara cambios y permite trabajar con ramas, incluso sin conexión.</p></article><article class="card"><h3>GitHub</h3><p>Plataforma que aloja repositorios Git y facilita la colaboración con issues, revisiones y pull requests. Necesitas conexión para publicar o descargar cambios.</p></article></div><p>Un <strong>commit</strong> guarda cambios en el repositorio local. Un <strong>push</strong> publica commits en el remoto: guardar un commit no lo sube automáticamente a GitHub.</p></section><section id="flujo" aria-labelledby="flujo-titulo"><h2 id="flujo-titulo">02. Del archivo al repositorio remoto</h2><ol class="flow" aria-label="Flujo de Git hacia GitHub"><li>Archivos</li><li>Staging</li><li>Commit</li><li>Repositorio local</li><li>Push</li><li>GitHub</li></ol><p>Editas y guardas los archivos en el directorio de trabajo. <code>git add</code> prepara su estado actual en el área de staging. <code>git commit</code> registra una instantánea en tu historial local. <code>git push</code> envía los commits al repositorio de GitHub.</p><p>Si editas otra vez después de <code>git add</code>, debes volver a añadir el archivo para incluir también esos cambios. Revisa el staging antes de confirmar.</p></section><section id="primer-commit" aria-labelledby="primer-commit-titulo"><h2 id="primer-commit-titulo">03. Prepara la versión v0.1</h2><p>Instala Git y abre una terminal dentro de la carpeta <code>weblab</code>. Configura tu identidad solo si todavía no lo has hecho; usa tu nombre y un correo propio o el correo privado de GitHub.</p><pre><code>git config --global user.name &quot;Tu nombre&quot;
+git config --global user.email &quot;tu-correo@example.com&quot;
+git init -b main
+git status
+git add .
+git diff --staged
+git commit -m &quot;Crea WebLab v0.1: base del minicurso&quot;
+git tag -a v0.1 -m &quot;Primera versión didáctica&quot;</code></pre><p>Crea un repositorio vacío en GitHub, sin README, licencia ni gitignore iniciales. Sustituye la URL de ejemplo por la del repositorio que has creado.</p><pre><code>git remote add origin https://github.com/TU-USUARIO/weblab.git
+git remote -v
+git push -u origin main
+git push origin v0.1</code></pre><p>GitHub puede pedir autenticación mediante su gestor de credenciales o un token; la contraseña de la cuenta no sirve como contraseña de Git por HTTPS. El ZIP no contiene un historial Git: estos comandos crean el primer commit real.</p></section><section id="comandos" aria-labelledby="comandos-titulo"><h2 id="comandos-titulo">04. Tu referencia de comandos</h2><div class="table-scroll" role="region" aria-label="Tabla de comandos Git, desplazable" tabindex="0"><table><caption>Comandos para consultar, guardar y compartir</caption><thead><tr><th scope="col">Comando</th><th scope="col">Qué hace</th></tr></thead><tbody><tr><th scope="row"><code>git init -b main</code></th><td>Inicia un repositorio local con main como rama inicial.</td></tr><tr><th scope="row"><code>git status</code></th><td>Muestra la rama y los cambios pendientes.</td></tr><tr><th scope="row"><code>git diff</code></th><td>Compara cambios de archivos seguidos que aún no están en staging.</td></tr><tr><th scope="row"><code>git add html.html</code></th><td>Añade el estado actual de ese archivo al staging.</td></tr><tr><th scope="row"><code>git diff --staged</code></th><td>Permite revisar lo que entrará en el próximo commit.</td></tr><tr><th scope="row"><code>git commit -m &quot;Añade objetivos&quot;</code></th><td>Crea una instantánea local de lo preparado.</td></tr><tr><th scope="row"><code>git log --oneline --graph --all</code></th><td>Muestra el historial y sus ramas de forma compacta.</td></tr><tr><th scope="row"><code>git branch</code></th><td>Lista las ramas locales y señala la actual.</td></tr><tr><th scope="row"><code>git switch -c mejora/menu</code></th><td>Crea una rama y cambia a ella.</td></tr><tr><th scope="row"><code>git switch main</code></th><td>Cambia a la rama main.</td></tr><tr><th scope="row"><code>git merge mejora/menu</code></th><td>Integra esa rama en la rama actual.</td></tr><tr><th scope="row"><code>git remote -v</code></th><td>Muestra los repositorios remotos configurados.</td></tr><tr><th scope="row"><code>git push -u origin main</code></th><td>Publica main y configura su seguimiento remoto.</td></tr><tr><th scope="row"><code>git pull --ff-only</code></th><td>Descarga e integra cambios solo si puede avanzar sin crear un merge.</td></tr><tr><th scope="row"><code>git clone URL</code></th><td>Descarga un repositorio y su historial en una carpeta nueva.</td></tr><tr><th scope="row"><code>git tag -a v0.1 -m &quot;WebLab v0.1&quot;</code></th><td>Marca un commit como versión v0.1.</td></tr></tbody></table></div><p>Usa <code>git clone</code> cuando el repositorio ya existe en GitHub; entra después en la carpeta creada. No ejecutes <code>git init</code> otra vez dentro de un clon. Si <code>pull --ff-only</code> avisa de ramas divergentes, detente y revisa el historial con el docente.</p></section><section id="ramas" aria-labelledby="ramas-titulo"><h2 id="ramas-titulo">05. Experimenta en una rama</h2><p>Una rama permite desarrollar un cambio sin incorporarlo todavía a <code>main</code>. Guarda o revisa los cambios pendientes antes de cambiar de rama.</p><pre><code>git switch -c mejora/menu
+# Modifica el menú, guarda y comprueba las páginas.
+git add index.html
+git commit -m &quot;Mejora el texto del menú de inicio&quot;
+git switch main
+git merge mejora/menu</code></pre><p>Ese ejemplo realiza un merge local. Para practicar revisión en GitHub, publica la rama con <code>git push -u origin mejora/menu</code> y abre un <strong>pull request</strong> hacia <code>main</code> antes de fusionar. Un compañero revisa el diff, comenta y comprueba el resultado. Después del merge remoto, cambia a <code>main</code> y actualiza con <code>git pull --ff-only</code>.</p><h3>¿Qué ocurre con un conflicto?</h3><p>Si dos ramas cambian las mismas líneas de forma incompatible, Git puede detener el merge. Abre los archivos que muestra <code>git status</code>, decide el contenido final y elimina los marcadores:</p><pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto en la rama actual
+=======
+Texto de la rama que se integra
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; mejora/menu</code></pre><p>Guarda la solución, comprueba la web y finaliza con <code>git add archivo.html</code> y <code>git commit</code>. Si prefieres cancelar un merge en curso para revisarlo después, usa <code>git merge --abort</code>. No elijas automáticamente una versión sin entender ambos cambios.</p><p>Para ampliar: <a href="https://git-scm.com/docs">documentación oficial de Git</a> y <a href="https://docs.github.com/en/pull-requests">guía oficial de pull requests</a>.</p></section><section id="practica" class="activity" aria-labelledby="practica-titulo">
+<p class="eyebrow">Tu turno</p><h2 id="practica-titulo">Una pequeña práctica</h2><p>Crea la rama <code>mejora/objetivos</code>, añade tus objetivos en HTML y guarda un commit. Publica la rama y abre un pull request hacia <code>main</code>.</p><p>En parejas, revisad el cambio y explicad qué aporta antes de fusionarlo.</p>
+<details><summary>Ver una pista</summary><pre><code>git switch -c mejora/objetivos
+# Edita html.html, guarda y comprueba la página.
+git status
+git add html.html
+git commit -m &quot;Añade objetivos de aprendizaje en HTML&quot;
+git push -u origin mejora/objetivos</code></pre><p>En GitHub, crea el pull request seleccionando <code>main</code> como base y <code>mejora/objetivos</code> como rama de comparación.</p></details></section><nav class="lesson-pagination" aria-label="Continuar el curso"><a href="javascript.html">Anterior: JavaScript</a><a href="proyecto.html">Siguiente: Proyecto final</a></nav></div></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>WebLab</strong> · 1.º DAM / LMSGI · v0.1</p>
+      <p>Aprende. Experimenta. Versiona. · <a href="git-github.html">Trabajar con Git</a></p>
+    </div>
+  </footer>
+</body>
+</html>

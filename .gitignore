@@ -1,0 +1,23 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Preferencias locales de editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Temporales, registros y paquetes generados
+*.tmp
+*.log
+*.zip
+
+# Credenciales locales: nunca deben subirse
+.env
+.env.*
+!.env.example
+
+# La web no necesita dependencias ni compilación
+node_modules/
