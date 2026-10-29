@@ -1,1 +1,5 @@
-Tema: pendiente de decidir
+<<<<<<< HEAD
+Tema: desarrollo de aplicaciones
+=======
+Tema: diseño de interfaces
+>>>>>>> practica/tema
